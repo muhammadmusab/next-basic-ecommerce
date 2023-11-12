@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-poppins);
+  background-color: #fefefe;
+  scroll-behavior: smooth;
+}
+
+.custom-container {
+  padding-left: 135px;
+  padding-right: 135px;
+  @media (max-width: 1199px) {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 90%;
+    margin: auto;
+  }
+}
+
+.container-fluid {
+  padding-left: 50px;
+  padding-right: 50px;
+  @media (max-width:767px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  // @media (max-width:575px) {
+  //   padding-left: 15px;
+  //   padding-right: 15px;
+  // }
+}
+
+input:focus-visible {
+  outline: none !important;
+}
+
+.nav-menu::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 300px;
+  width: 0.3px;
+  background: gray;
+}
+
+.hr{
+  height: 1px;
+  width: 100%;
+  background-color: #333;
+}
+
+.card {
+  border: 0;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+
+.spacer{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #81B2FD;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0760B2;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0760B2;
+}
