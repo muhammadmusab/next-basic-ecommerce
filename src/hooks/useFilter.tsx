@@ -15,13 +15,11 @@ const useFilter = () => {
         let allColors = [] as string[];
 
         params.getAll(name).forEach((item) => {
+         
           allColors = allColors.concat(item.split(","));
         });
 
         let hasColor = allColors.includes(value);
-
-        // delete all colors
-        params.delete(name);
 
         if (hasColor) {
           allColors = allColors.filter((item) => item !== value);

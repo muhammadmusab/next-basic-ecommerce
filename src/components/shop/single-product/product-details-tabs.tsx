@@ -9,7 +9,7 @@ import ProductReviews from "./tabs/product-reviews";
 import Sizing from "./tabs/sizing";
 import Specifications from "./tabs/specifications";
 interface Props {
-  reviews: { name: string; date: string; rating: number; text: string }[];
+  reviews: { name: string; date: string; rating: number; text: string,title:string; }[];
   description: any;
   showSizing: boolean;
   showSpecifications: boolean;

@@ -41,6 +41,7 @@ const ProductVerticalSlider = ({ productImages }: Props) => {
         {products &&
           products.map((slide, i: number) => (
             <button
+            key={'vertical'+i}
               className={`my-[10px]  ${
                 currentSlide === i ? "border-[2px]" : "border-none"
               } border-secondaryhover rounded-[8px]`}

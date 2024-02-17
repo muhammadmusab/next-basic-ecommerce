@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/form/input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { AiOutlineUser, AiOutlineLock, AiOutlineMail } from "react-icons/ai";
+import * as actions from "@/actions";
 const formSchema = yup.object({
   name: yup.string().required(),
   email: yup.string().email().required(),
@@ -33,9 +34,13 @@ const Login = () => {
 
   type formSchemaType = yup.InferType<typeof formSchema>;
 
-  function onSubmit(values: formSchemaType) {
-    console.log(values);
-  }
+  const onSubmit = async (formData: FormData) => {
+    console.log(formData);
+    const isValid = await form.trigger();
+    if (!isValid) return;
+    const response = await actions.register(formData);
+    console.log(response);
+  };
   const inputs = [
     {
       name: "name",
@@ -64,10 +69,10 @@ const Login = () => {
   ];
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form action={onSubmit} className="space-y-8">
         {inputs.map((input) => (
           <FormField
-            key={uuidv4()}
+            key={input.name}
             control={form.control}
             name={input.name as "email" | "password" | "name"}
             render={({ field }) => (

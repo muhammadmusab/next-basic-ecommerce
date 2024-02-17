@@ -15,12 +15,18 @@ import { Input } from "@/components/ui/form/input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
+import * as actions from "@/actions";
+// import { useFormState } from "react-dom";
 const formSchema = yup.object({
   email: yup.string().email().required(),
   password: yup.string().max(8).required(),
 });
 
 const Login = () => {
+  // const [formStatus, action] = useFormState(actions.login, {
+  //   email:"",
+  //   password:"",
+  // });
   const form = useForm({
     resolver: yupResolver(formSchema),
     defaultValues: {
@@ -31,8 +37,11 @@ const Login = () => {
 
   type formSchemaType = yup.InferType<typeof formSchema>;
 
-  function onSubmit(values: formSchemaType) {
-    console.log(values);
+ const onSubmit= async (formData: FormData) =>{
+ const valid= await form.trigger()
+ if(!valid) return;
+   const data= await actions.login(formData)
+   console.log(data)
   }
   const inputs = [
     {
@@ -56,11 +65,11 @@ const Login = () => {
   ];
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        {inputs.map((input) => (
+      <form action={onSubmit} className="space-y-8">
+        {inputs.map((input,i) => (
           <FormField
             control={form.control}
-            key={uuidv4()}
+            key={input.name}
             name={input.name as "email" | "password"}
             render={({ field }) => (
               <FormItem className="relative">

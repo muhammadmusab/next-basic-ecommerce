@@ -94,7 +94,7 @@ const ProductInformation = ({ product }: Props) => {
         <span className="font-bold text-primary  text-[14px]">
           Availability :
         </span>
-        <span className="text-primary ml-1  ">Hurry, only left</span>
+        <span className="text-primary ml-1">Hurry, only left</span>
         <span className="text-white flex items-center px-[5px] rounded-[5px] bg-secondaryhover ml-1">
           {product.stock} items
         </span>
@@ -143,8 +143,11 @@ const ProductInformation = ({ product }: Props) => {
       )}
       {/* Product Properties */}
       {product.properties &&
-        product.properties.map((property) => (
-          <div className="my-[10px] flex items-center text-[14px] text-primary">
+        product.properties.map((property, i) => (
+          <div
+            key={property.name + i}
+            className="my-[10px] flex items-center text-[14px] text-primary"
+          >
             <h2 className=" font-bold">{property.name}:</h2>
             <span className=" pl-[5px]">{property.value}</span>
           </div>
@@ -154,7 +157,11 @@ const ProductInformation = ({ product }: Props) => {
         <div className="my-[10px] flex items-center text-[14px] text-primary">
           <h2 className=" font-bold">Tags:</h2>
           {product.tags.map((tag) => (
-            <Link href={tag.path} className=" font-normal underline pl-[5px]">
+            <Link
+              key={tag.path}
+              href={tag.path}
+              className=" font-normal underline pl-[5px]"
+            >
               {tag.value}
             </Link>
           ))}
@@ -175,8 +182,11 @@ const ProductInformation = ({ product }: Props) => {
 
       {/* variants */}
       {product.variants &&
-        product.variants.map((variant) => (
-          <div className="my-[20px] text-[14px] text-primary">
+        product.variants.map((variant, i) => (
+          <div
+            key={"variant" + i}
+            className="my-[20px] text-[14px] text-primary"
+          >
             <h2 className="font-bold">
               {variant.type}:{" "}
               <span className="font-normal">{variant.values[0].value}</span>

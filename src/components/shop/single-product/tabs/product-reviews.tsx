@@ -1,5 +1,6 @@
 import { useState, Fragment } from "react";
 import Stars from "react-rating-stars-component";
+import WriteReview from "./write-review";
 interface Props {
   average: number;
   reviews: {
@@ -11,7 +12,7 @@ interface Props {
   }[];
 }
 const ProductReviews = ({ average, reviews }: Props) => {
-  const [writeReview, setWriteReview] = useState(false);
+  const [showWriteReview, setWriteReview] = useState(false);
 
   return (
     <Fragment>
@@ -45,10 +46,10 @@ const ProductReviews = ({ average, reviews }: Props) => {
         </button>
       </div>
       {/* write a review form */}
-      
+      {showWriteReview && <WriteReview />}
       {/* end of write a review form */}
       {/* List of reviews */}
-      <hr  className="border-t border-[#ced4da] mt-[50px]"/>
+      <hr className="border-t border-[#ced4da] mt-[50px]" />
       <div className="spacer"></div>
       {reviews.map((review) => (
         <div className="mb-[30px]">
@@ -62,13 +63,17 @@ const ProductReviews = ({ average, reviews }: Props) => {
           />
 
           <div className="  text-primaryhover">
-            <p className="text-primary font-bold mt-[10px] mb-[2px]">{review.title}</p>
+            <p className="text-primary font-bold mt-[10px] mb-[2px]">
+              {review.title}
+            </p>
             <div className="flex items-center font-roboto">
               <p className="">{review.name}</p>
               <p className="ml-[5px]">{review.date}</p>
             </div>
           </div>
-          <p className="text-primaryhover mt-[10px] text-[14px]">{review.text}</p>
+          <p className="text-primaryhover mt-[10px] text-[14px]">
+            {review.text}
+          </p>
         </div>
       ))}
     </Fragment>

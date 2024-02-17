@@ -42,7 +42,7 @@ const AppliedColorFilter = () => {
       {selectedColors &&
         selectedColors.map((color: ColorVariantType) => (
           <button
-          key={uuidv4()}
+            key={uuidv4()}
             className="flex hover:text-secondaryhover items-center border border-secondary rounded-[2px] bg-white mr-[4px] mt-[15px]  p-[10px] font-roboto text-[12px]  min-h-[36px] min-w-[36px]"
             onClick={() => removeColorHandler(color.value)}
           >
