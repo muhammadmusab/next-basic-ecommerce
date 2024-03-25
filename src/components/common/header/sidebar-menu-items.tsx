@@ -10,7 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import CategoriesMenu from "./categories-menu";
-import RightSidebar from "./RightSidebar";
+import RightSidebar from "./CartSidebar";
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 interface Props {
   links: {

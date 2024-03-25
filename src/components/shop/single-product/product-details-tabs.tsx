@@ -1,8 +1,6 @@
 "use client";
 import { Fragment, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Heading from "@/components/common/heading";
-import { v4 as uuidv4 } from "uuid";
 import ProductDescription from "./tabs/product-description";
 import DeliveryReturn from "./tabs/delivery-return";
 import ProductReviews from "./tabs/product-reviews";
@@ -121,13 +119,12 @@ const ProductDetailsTabs = ({
           onValueChange={(value) => setCurrentTab(value)}
           orientation="horizontal"
         >
-          <TabsList className="flex justify-center items-center flex-wrap h-[90px]">
+          <TabsList className="flex w-full justify-center xs:justify-between  flex-wrap h-[90px]">
             {tabs.map((tab) => (
               <TabsTrigger
-                onChange={(value) => console.log(value)}
                 value={tab.id}
-                key={uuidv4()}
-                className="my-10 uppercase text-[16px] md:text-[14px] sm:text-[12px] font-bold text-[#333333]  data-[state=active]:text-secondaryhover data-[state=active]:border-b-2 border-secondaryhover ml-[50px] md:ml-[20px]"
+                key={tab.id}
+                className="my-10 transition-all w-[max-content] xs:px-0 xs:max-w-[50%] xs:basis-[45%] uppercase text-[16px] md:text-[14px] font-bold text-[#333333]  data-[state=active]:text-secondaryhover data-[state=active]:border-b-2 border-secondaryhover ml-[50px] md:ml-[20px] xs:ml-0"
               >
                 {tab.text}
               </TabsTrigger>
@@ -138,11 +135,11 @@ const ProductDetailsTabs = ({
             <TabsContent
               key={content.id}
               value={content.id}
-              className={`mt-50 ${
+              className={`mt-50 transition-all duration-[1000ms] ${
                 content.id === currentTab ? "opacity-100" : "opacity-0"
-              }  transition-all duration-[500ms]`}
+              }  `}
             >
-              <div className="">{content.component}</div>
+              <div className="transition-all duration-[1000ms]">{content.component}</div>
             </TabsContent>
           ))}
         </Tabs>

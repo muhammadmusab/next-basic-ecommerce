@@ -2,6 +2,7 @@ import Breadcrumbs from "@/components/shop/breadcrumbs";
 import React from "react";
 import ProductVerticalSlider from "@/components/shop/single-product/product-vertical-slider";
 import ProductInformation from "@/components/shop/single-product/product-information";
+import ProductControls from "@/components/shop/single-product/product-controls";
 import ProductDetailsTabs from "@/components/shop/single-product/product-details-tabs";
 const page = () => {
   let product = {
@@ -54,6 +55,7 @@ const page = () => {
         ],
       },
     ],
+    vendor: null,
     stock: 3,
     tags: [
       {
@@ -113,12 +115,19 @@ const page = () => {
     <div className="font-poppins bg-[#F7F8FC] pb-[100px]">
       <Breadcrumbs name="product_name" />
       <div className="container-fluid">
-        <div className="flex justify-between items-center">
-          <div className="basis-[48%] max-w-[48%]">
+        <div className="flex justify-between items-center flex-wrap">
+          <div className="basis-[48%] max-w-[48%] lg:basis-full lg:max-w-full">
             <ProductVerticalSlider />
           </div>
-          <div className="basis-[50%] max-w-[50%]">
+          <div className="basis-[50%] max-w-[50%] lg:basis-full lg:max-w-full">
             <ProductInformation product={product} />
+            <ProductControls
+              tags={product.tags}
+              variants={product.variants}
+              productType={product.productType}
+              properties={product.properties}
+              vendor={product?.vendor}
+            />
           </div>
         </div>
       </div>

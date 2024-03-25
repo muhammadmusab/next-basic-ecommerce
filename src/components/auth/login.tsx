@@ -18,8 +18,8 @@ import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
 import * as actions from "@/actions";
 // import { useFormState } from "react-dom";
 const formSchema = yup.object({
-  email: yup.string().email().required(),
-  password: yup.string().max(8).required(),
+  email: yup.string().email().required('Required'),
+  password: yup.string().max(8).required('Required'),
 });
 
 const Login = () => {

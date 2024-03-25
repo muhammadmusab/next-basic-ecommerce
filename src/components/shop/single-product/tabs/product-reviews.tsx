@@ -19,7 +19,7 @@ const ProductReviews = ({ average, reviews }: Props) => {
       <h1 className="text-secondaryhover text-[20px] font-bold  mb-[10px]">
         Customer Reviews
       </h1>
-      <div className="flex items-center justify-between">
+      <div className="flex xs:items-start items-center  flex-row xs:flex-col justify-between">
         <div className="flex items-center">
           <div>
             <Stars
@@ -39,7 +39,7 @@ const ProductReviews = ({ average, reviews }: Props) => {
         </div>
 
         <button
-          className="bg-secondaryhover transition-all h-[40px] max-h-[60px] hover:bg-primaryhover text-white px-[10px] py-[0px]"
+          className="bg-secondaryhover mt-0 xs:mt-3 transition-all h-[40px] max-h-[60px] hover:bg-primaryhover text-white px-[10px] py-[0px]"
           onClick={() => setWriteReview((value) => !value)}
         >
           Write a review
@@ -49,10 +49,10 @@ const ProductReviews = ({ average, reviews }: Props) => {
       {showWriteReview && <WriteReview />}
       {/* end of write a review form */}
       {/* List of reviews */}
-      <hr className="border-t border-[#ced4da] mt-[50px]" />
-      <div className="spacer"></div>
+      <hr className="border-t border-[#ced4da] xs:mt-3 mt-[50px]" />
+      <div className="spacer !pt-0 !pb-3"></div>
       {reviews.map((review) => (
-        <div className="mb-[30px]">
+        <div key={review.date} className="mb-[30px]">
           <Stars
             count={5}
             value={review.rating}

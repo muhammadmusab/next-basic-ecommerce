@@ -25,7 +25,7 @@ interface Props {
   type: "cart" | "wishlist";
   className?: string;
 }
-const RightSidebar = ({
+const CartSidebar = ({
   headerImage,
   headerText,
   icon,
@@ -108,7 +108,7 @@ const RightSidebar = ({
                 <div className="">
                   <hr />
                   <div className="flex mt-20">
-                    <div className="basis-[80px] max-w-[80px]"></div>
+                    {/* <div className="basis-[80px] max-w-[80px]"></div> */}
                     <p className="ml-[30px] basis-[70%] max-w-[70%] font-bold">
                       Sub Total
                     </p>
@@ -134,4 +134,4 @@ const RightSidebar = ({
   );
 };
 
-export default RightSidebar;
+export default CartSidebar;

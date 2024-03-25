@@ -11,7 +11,7 @@ import { useStore } from "@/hooks/useStore";
 interface Props {
   className?: string;
 }
-const filters = ({ className }: Props) => {
+const Filters = ({ className }: Props) => {
   const categoriesTitleClass =
     "pb-[15px] text-[18px] group-hover:text-secondaryhover group-hover:no-underline md:text-[12px]";
   // change this functionality later when integrating api , for now we will consider category men/dress
@@ -198,7 +198,7 @@ const filters = ({ className }: Props) => {
 
   useEffect(() => {
     setBrands(brands);
-  }, []);
+  });
 
   return (
     <div
@@ -233,4 +233,4 @@ const filters = ({ className }: Props) => {
   );
 };
 
-export default filters;
+export default Filters;

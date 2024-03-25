@@ -17,9 +17,9 @@ import { useForm } from "react-hook-form";
 import { AiOutlineUser, AiOutlineLock, AiOutlineMail } from "react-icons/ai";
 import * as actions from "@/actions";
 const formSchema = yup.object({
-  name: yup.string().required(),
-  email: yup.string().email().required(),
-  password: yup.string().max(8).required(),
+  name: yup.string().required('Required'),
+  email: yup.string().email().required('Required'),
+  password: yup.string().max(8).required('Required'),
 });
 
 const Login = () => {

@@ -19,11 +19,11 @@ import { useForm } from "react-hook-form";
 import * as actions from "@/actions";
 
 const commentSchema = yup.object({
-  email: yup.string().email().required(),
-  name: yup.string().required(),
-  rating: yup.number().required(),
-  title: yup.string().required(),
-  body: yup.string().required(),
+  email: yup.string().email().required('Required'),
+  name: yup.string().required('Required'),
+  rating: yup.number().required('Required'),
+  title: yup.string().required('Required'),
+  body: yup.string().required('Required'),
 });
 
 const WriteReview = () => {

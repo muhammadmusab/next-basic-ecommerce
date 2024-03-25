@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/sheet";
 import SidebarMenuItems from "./sidebar-menu-items";
 import CategoriesMenu from "./categories-menu";
-import RightSidebar from "./RightSidebar";
+import CartSidebar from "./CartSidebar";
 import AuthSidebar from "./AuthSidebar";
 const Navbar = () => {
   const links = [
@@ -231,7 +231,7 @@ const Navbar = () => {
         </Link>
         <div className="flex items-center">
           {/* sidebar cart */}
-          <RightSidebar
+          <CartSidebar
             headerImage="/cart.svg"
             headerText="Cart List"
             icon={
@@ -241,7 +241,7 @@ const Navbar = () => {
             type={"cart"}
           />
           {/* favorites sidebar*/}
-          <RightSidebar
+          <CartSidebar
             headerImage="/heart.svg"
             headerText="Wish List"
             icon={

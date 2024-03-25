@@ -4,16 +4,12 @@ import {
   SplideSlide,
   Options,
   SplideTrack,
-  SplideEventHandlers,
-  SplideEventHandlerMap,
-  SplideHTMLAttributes,
-  SplideProps,
 } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/core";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import Image from "next/image";
 import { products } from "@/constants/slides";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 interface Props {
   productImages?: string[];
 }
